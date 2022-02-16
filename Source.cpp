@@ -5,9 +5,9 @@
 std::ifstream F;
 char FILE_IN_NAME[] = "myfiles\\infile.txt";
 
+
 void mathfunc::NodeList::read_from_file()
 {
-	
 	F.open(FILE_IN_NAME,std::ios::in);
 	char x;
 	if (F) {
