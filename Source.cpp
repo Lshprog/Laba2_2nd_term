@@ -16,21 +16,15 @@ void mathfunc::NodeList::read_from_file()
 			Node* node = new Node(data);
 			if ((head == nullptr) && (tail == nullptr)) {
 				F >> node->data->coef;
-				std::cout << node->data->coef << " ";
 				F >> x;
-				std::cout << x << " ";
 				F >> node->data->pow_x;
-				std::cout << node->data->pow_x << " ";
 				head = node;
 				tail = node;
 			}
 			else {
 				F >> node->data->coef;
-				std::cout << node->data->coef << " ";
 				F >> x;
-				std::cout << x << " ";
 				F >> node->data->pow_x;
-				std::cout << node->data->pow_x << " ";
 				tail->next = node;
 				node->prev = tail;
 				tail = node;
@@ -41,7 +35,6 @@ void mathfunc::NodeList::read_from_file()
 	}
 	
 	middle = tail;
-	std::cout << head->data->coef << " " << head->data->pow_x;
 	factorization();
 	return;
 }
@@ -57,17 +50,13 @@ void mathfunc::NodeList::factorization()
 	for (int i = 1;((i <= abs(temp))&&(head->data->pow_x>0)); i++) {
 		if (temp % i == 0) {
 			result_pos = i;
-			std::cout << result_pos<<" ";
 			result_neg = -i;
-			std::cout << result_neg<< " ";
 			if (calc_formula(result_pos) == 0) {
-				std::cout << " Test_temp ++ \n";
 				temp = go_down(result_pos);
 				i = 0;
 			}
 			else if (calc_formula(result_neg) == 0) {
 				temp = go_down(result_neg);
-				std::cout << " Test_temp -- \n";
 				i = 0;
 			}
 			else
@@ -125,6 +114,10 @@ void mathfunc::NodeList::output_final()
 		int iter = head->data->pow_x;
 		while (true) {
 			std::cout << node->data->coef << "*x^" << node->data->pow_x;
+			if (node == tail) {
+				std::cout << ")";
+				return;
+			}
 			node = node->next;
 			iter--;
 			if (iter < 0)
