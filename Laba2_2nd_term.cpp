@@ -4,6 +4,5 @@
 
 int main()
 {
-    mathfunc::NodeList list = mathfunc::NodeList();
-    list.read_from_file();
+	startprog();
 }

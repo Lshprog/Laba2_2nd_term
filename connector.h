@@ -28,3 +28,4 @@ namespace mathfunc {
 	};
 	
 }
+void startprog();
